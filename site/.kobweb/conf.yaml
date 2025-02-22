@@ -1,0 +1,14 @@
+site:
+  title: "Malefic Kobweb Single Page"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/kotlin-webpack/js/developmentExecutable/singlepage.js"
+      api: "build/libs/singlepage.jar"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/singlepage.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
