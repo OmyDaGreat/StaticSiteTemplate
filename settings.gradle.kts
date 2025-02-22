@@ -28,4 +28,3 @@ gradle.settingsEvaluated {
 rootProject.name = "singlepage"
 
 include(":site")
-

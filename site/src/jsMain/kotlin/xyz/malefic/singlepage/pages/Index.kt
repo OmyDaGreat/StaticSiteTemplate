@@ -1,6 +1,6 @@
 package xyz.malefic.singlepage.pages
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -11,7 +11,6 @@ import org.jetbrains.compose.web.dom.Text
 @Page
 @Composable
 fun HomePage() {
-    // TODO: Replace the following with your own content
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Text("THIS PAGE INTENTIONALLY LEFT BLANK")
     }
