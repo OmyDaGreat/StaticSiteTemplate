@@ -12,6 +12,6 @@ import org.jetbrains.compose.web.dom.Text
 @Composable
 fun HomePage() {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("THIS PAGE INTENTIONALLY LEFT BLANK")
+        Text("THIS PAGE INTENTIONALLY LEFT BLANK!")
     }
 }
