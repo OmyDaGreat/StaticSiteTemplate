@@ -12,6 +12,7 @@ types:
   - ci: Changes to our CI configuration files and scripts
   - chore: Other changes that don't modify src or test files
   - revert: Reverts a previous commit
+  - update: Update a dependency or package
 
 scopes:
   - index
