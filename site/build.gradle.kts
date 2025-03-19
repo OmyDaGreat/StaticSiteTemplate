@@ -22,11 +22,9 @@ kotlin {
 
     sourceSets {
         jsMain.dependencies {
-            implementation(libs.compose.runtime)
-            implementation(libs.compose.html.core)
-            implementation(libs.kobweb.core)
-            implementation(libs.kobweb.silk)
-            implementation(libs.silk.icons.fa)
+            implementation(libs.bundles.compose)
+            implementation(libs.bundles.kobweb)
+            implementation(libs.bundles.silk.icons)
         }
     }
 }

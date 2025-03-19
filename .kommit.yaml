@@ -15,14 +15,15 @@ types:
   - update: Update a dependency or package
 
 scopes:
-  - index
-  - github
-  - gradle
-  - kommit
+  all:
+    - index
+    - github
+    - gradle
+    - kommit
 
 options:
   allowCustomScopes: true
-  footerPrefix: ISSUES CLOSED:
+  footerPrefix: "ISSUES CLOSED:"
   allowBreakingChanges:
     - feat
     - fix
