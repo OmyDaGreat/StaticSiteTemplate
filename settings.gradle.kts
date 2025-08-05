@@ -11,6 +11,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "singlepage"
+rootProject.name = "staticsite"
 
 include(":site")

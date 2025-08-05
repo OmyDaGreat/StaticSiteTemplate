@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.kobweb.application)
 }
 
-group = "xyz.malefic.singlepage"
+group = "xyz.malefic.staticsite"
 version = "1.0-SNAPSHOT"
 
 kobweb {
@@ -18,7 +18,7 @@ kobweb {
 }
 
 kotlin {
-    configAsKobwebApplication("singlepage")
+    configAsKobwebApplication("staticsite")
 
     sourceSets {
         jsMain.dependencies {
