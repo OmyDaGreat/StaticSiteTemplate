@@ -18,6 +18,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.flexGrow
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
+import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
@@ -33,6 +34,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.position
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.top
+import org.jetbrains.compose.web.css.vh
 import org.jetbrains.compose.web.css.width
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
@@ -62,7 +64,7 @@ fun NavBarLayout(content: @Composable () -> Unit) {
     val visiblePages = allPages.take(maxVisiblePages)
     val overflowPages = allPages.drop(maxVisiblePages)
 
-    Column(Modifier.fillMaxSize()) {
+    Column(Modifier.fillMaxWidth().height(100.vh)) {
         Box(
             NavBarStyle.toModifier(),
             contentAlignment = Alignment.Center,
