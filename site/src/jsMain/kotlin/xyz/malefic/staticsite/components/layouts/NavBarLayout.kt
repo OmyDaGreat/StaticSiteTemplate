@@ -1,11 +1,11 @@
 package xyz.malefic.staticsite.components.layouts
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.varabyte.kobweb.compose.css.zIndex
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -20,14 +20,21 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.onClick
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.style.toModifier
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.web.css.Color
+import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.height
+import org.jetbrains.compose.web.css.left
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.position
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.top
+import org.jetbrains.compose.web.css.width
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 import xyz.malefic.staticsite.styles.ActiveNavItemStyle
@@ -40,7 +47,6 @@ import xyz.malefic.staticsite.styles.NavBarStyle
 import xyz.malefic.staticsite.styles.NavItemHoverStyle
 import xyz.malefic.staticsite.styles.isCurrentPage
 import xyz.malefic.staticsite.util.Pages
-import kotlin.time.Duration.Companion.milliseconds
 import com.varabyte.kobweb.compose.ui.graphics.Color as Kolor
 
 @Layout
@@ -68,9 +74,8 @@ fun NavBarLayout(content: @Composable () -> Unit) {
                     .padding(0.px, 20.px),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                // Brand/Logo area (optional)
                 Box(Modifier.flexGrow(1)) {
-                    // Developers can customize this area
+                    // Brand/Logo area (optional)
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -92,27 +97,19 @@ fun NavBarLayout(content: @Composable () -> Unit) {
                     }
 
                     if (overflowPages.isNotEmpty()) {
-                        Box(DropdownStyle.toModifier()) {
-                            // Dropdown button
-                            Div(
-                                attrs = {
-                                    onClick { isDropdownOpen = !isDropdownOpen }
-                                },
+                        Box(DropdownStyle.toModifier().onClick { isDropdownOpen = !isDropdownOpen }) {
+                            Box(
+                                DropdownButtonHoverStyle.toModifier(),
+                                contentAlignment = Alignment.Center,
                             ) {
-                                Box(
-                                    DropdownButtonHoverStyle.toModifier(),
-                                    contentAlignment = Alignment.Center,
-                                ) {
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
-                                        Text("More")
-                                        // Simple arrow indicator
-                                        Box(
-                                            Modifier
-                                                .margin(left = 8.px)
-                                                .fontSize(10.px),
-                                        ) {
-                                            Text(if (isDropdownOpen) "▲" else "▼")
-                                        }
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Text("More")
+                                    Box(
+                                        Modifier
+                                            .margin(left = 8.px)
+                                            .fontSize(10.px),
+                                    ) {
+                                        Text(if (isDropdownOpen) "▲" else "▼")
                                     }
                                 }
                             }
@@ -153,12 +150,21 @@ fun NavBarLayout(content: @Composable () -> Unit) {
         }
     }
 
-    LaunchedEffect(isDropdownOpen) {
-        if (isDropdownOpen) {
-            // You might want to add a click outside listener here
-            // For simplicity, we'll just auto-close after a delay
-            delay(5000.milliseconds)
-            isDropdownOpen = false
-        }
+    if (isDropdownOpen) {
+        Div(
+            attrs = {
+                onClick {
+                    isDropdownOpen = false
+                }
+                style {
+                    position(Position.Fixed)
+                    top(0.px)
+                    left(0.px)
+                    width(100.percent)
+                    height(100.percent)
+                    zIndex(1)
+                }
+            },
+        )
     }
 }
