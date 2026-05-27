@@ -25,6 +25,7 @@ kotlin {
             implementation(libs.bundles.compose)
             implementation(libs.bundles.kobweb)
             implementation(libs.bundles.silk.icons)
+            implementation(libs.kutint)
         }
     }
 }

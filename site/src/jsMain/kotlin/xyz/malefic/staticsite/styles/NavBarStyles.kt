@@ -8,7 +8,6 @@ import com.varabyte.kobweb.compose.css.WhiteSpace
 import com.varabyte.kobweb.compose.css.functions.LinearGradient
 import com.varabyte.kobweb.compose.css.functions.linearGradient
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.rgba
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.background
 import com.varabyte.kobweb.compose.ui.modifiers.border
@@ -36,7 +35,6 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.selectors.hover
-import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.Position
@@ -44,6 +42,8 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.s
 import org.jetbrains.compose.web.css.textDecoration
+import xyz.malefic.kutint.parseHex
+import xyz.malefic.kutint.rgba
 import xyz.malefic.staticsite.util.Pages
 
 val NavBarStyle =
@@ -57,14 +57,14 @@ val NavBarStyle =
                         linearGradient(
                             LinearGradient.Direction.ToRight,
                         ) {
-                            add(Color("#f8f9fa"), 0.percent)
-                            add(Color("#e9ecef"), 50.percent)
-                            add(Color("#dee2e6"), 100.percent)
+                            add(parseHex("#f8f9fa"), 0.percent)
+                            add(parseHex("#e9ecef"), 50.percent)
+                            add(parseHex("#dee2e6"), 100.percent)
                         },
                     ),
                 ),
-            ).boxShadow(0.px, 2.px, 4.px, color = rgba(0f, 0f, 0f, 0.1f))
-            .borderBottom(1.px, LineStyle.Solid, Color("#dee2e6"))
+            ).boxShadow(0.px, 2.px, 4.px, color = rgba(0, 0, 0, 0.1f))
+            .borderBottom(1.px, LineStyle.Solid, parseHex("#dee2e6"))
     }
 
 val NavItemStyle =
@@ -74,7 +74,7 @@ val NavItemStyle =
         .borderRadius(6.px)
         .styleModifier {
             textDecoration("none")
-        }.color(Color("#495057"))
+        }.color(parseHex("#495057"))
         .fontSize(14.px)
         .fontWeight(500)
         .transition(Transition.all(0.2.s))
@@ -88,8 +88,8 @@ val NavItemHoverStyle =
 
         hover {
             Modifier
-                .background(rgba(108f, 117f, 125f, 0.1f))
-                .color(Color("#212529"))
+                .background(rgba(108, 117, 125, 0.1f))
+                .color(parseHex("#212529"))
                 .translateY((-1).px)
         }
     }
@@ -97,8 +97,8 @@ val NavItemHoverStyle =
 val ActiveNavItemStyle =
     CssStyle.base {
         NavItemStyle
-            .background(rgba(13f, 110f, 253f, 0.1f))
-            .color(Color("#0d6efd"))
+            .background(rgba(13, 110, 253, 0.1f))
+            .color(parseHex("#0d6efd"))
             .fontWeight(600)
     }
 
@@ -117,9 +117,9 @@ val DropdownContentStyle =
             .right(0.px)
             .background(Colors.White)
             .minWidth(180.px)
-            .boxShadow(0.px, 8.px, 16.px, color = rgba(0f, 0f, 0f, 0.15f))
+            .boxShadow(0.px, 8.px, 16.px, color = rgba(0, 0, 0, 0.15f))
             .borderRadius(8.px)
-            .border(1.px, LineStyle.Solid, Color("#dee2e6"))
+            .border(1.px, LineStyle.Solid, parseHex("#dee2e6"))
             .zIndex(1000)
             .padding(8.px, 0.px)
     }
@@ -130,7 +130,7 @@ val DropdownItemStyle =
         .padding(10.px, 16.px)
         .styleModifier {
             textDecoration("none")
-        }.color(Color("#495057"))
+        }.color(parseHex("#495057"))
         .fontSize(14.px)
         .transition(Transition.of("background-color", 0.15.s))
         .whiteSpace(WhiteSpace.NoWrap)
@@ -142,7 +142,7 @@ val DropdownItemHoverStyle =
         }
 
         hover {
-            Modifier.background(Color("#f8f9fa"))
+            Modifier.background(parseHex("#f8f9fa"))
         }
     }
 
@@ -154,8 +154,8 @@ val DropdownButtonHoverStyle =
                 .margin(0.px, 4.px)
                 .borderRadius(6.px)
                 .background(Colors.Transparent)
-                .border(1.px, LineStyle.Solid, Color("#dee2e6"))
-                .color(Color("#495057"))
+                .border(1.px, LineStyle.Solid, parseHex("#dee2e6"))
+                .color(parseHex("#495057"))
                 .fontSize(14.px)
                 .fontWeight(500)
                 .cursor(Cursor.Pointer)
@@ -165,9 +165,9 @@ val DropdownButtonHoverStyle =
 
         hover {
             Modifier
-                .background(rgba(108f, 117f, 125f, 0.1f))
+                .background(rgba(108, 117, 125, 0.1f))
                 .border {
-                    color(Color("#adb5bd"))
+                    color(parseHex("#adb5bd"))
                 }
         }
     }

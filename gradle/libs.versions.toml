@@ -2,6 +2,7 @@
 jetbrains-compose = "1.11.0"
 kobweb = "0.24.0"
 kotlin = "2.3.21"
+kutint = "1.0.1"
 
 [libraries]
 compose-html-core = { module = "org.jetbrains.compose.html:html-core", version.ref = "jetbrains-compose" }
@@ -12,6 +13,7 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
 silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
 silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
+kutint = { group = "xyz.malefic", name = "kutint", version.ref = "kutint" }
 
 [plugins]
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
