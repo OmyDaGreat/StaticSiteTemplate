@@ -2,7 +2,7 @@
 jetbrains-compose = "1.11.1"
 kobweb = "0.24.0"
 kotlin = "2.4.10"
-kutint = "1.0.1"
+kutint = "1.1.0"
 
 [libraries]
 compose-html-core = { module = "org.jetbrains.compose.html:html-core", version.ref = "jetbrains-compose" }
