@@ -25,7 +25,6 @@ import com.varabyte.kobweb.silk.style.selectors.hover
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.s
-import xyz.malefic.staticsite.util.Pages
 
 val NavBarStyle =
     CssStyle.base {
@@ -65,10 +64,4 @@ val ActiveNavItemStyle =
             .background(AppTheme.static.primary.variable)
             .color(AppTheme.static.onPrimary.variable)
             .fontWeight(600)
-    }
-
-fun Pages.isCurrentPage(currentRoute: String): Boolean =
-    when (this) {
-        Pages.INDEX -> currentRoute == "" || currentRoute == "/"
-        else -> currentRoute == route
     }

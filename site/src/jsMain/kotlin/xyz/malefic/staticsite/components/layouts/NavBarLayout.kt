@@ -22,8 +22,7 @@ import org.jetbrains.compose.web.dom.Text
 import xyz.malefic.staticsite.styles.ActiveNavItemStyle
 import xyz.malefic.staticsite.styles.InactiveNavItemStyle
 import xyz.malefic.staticsite.styles.NavBarStyle
-import xyz.malefic.staticsite.styles.isCurrentPage
-import xyz.malefic.staticsite.util.Pages
+import xyz.malefic.staticsite.util.TopLevelPages
 
 @Layout
 @Composable
@@ -48,7 +47,7 @@ fun NavBarLayout(content: @Composable () -> Unit) {
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Pages.entries.forEach { page ->
+                    TopLevelPages.entries.forEach { page ->
                         val isActive = page.isCurrentPage(currentRoute)
 
                         Link(
